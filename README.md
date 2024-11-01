@@ -7,6 +7,7 @@ This project uses historical Olympics data to analyze patterns in athlete perfor
 - [Data](#data)
 - [Analysis Process](#analysis-process)
 - [Modeling](#modeling)
+- [Evaluation](#evaluation)
 - [Results](#results)
 - [Recommendations](#recommendations)
 - [Installation](#installation)
@@ -46,15 +47,40 @@ The project follows the CRISP-DM framework:
      - **Support Vector Classifier (SVC)**
      - **XGBoost**
 
-### 5. **Evaluation**
-   - Model evaluation based on metrics like precision, recall, F1-score, and AUPRC.
-   - Comparison of models for predicting likely medalists, focusing on accuracy and reliability.
+## Evaluation
+The models were evaluated based on key metrics:
+- **AUPRC (Area Under Precision-Recall Curve)**: Evaluates how well the model balances precision and recall across thresholds, especially useful for identifying potential churners.
+- **F1 Score**: Combines precision and recall to assess the model’s effectiveness in capturing true positive predictions.
+- **Precision**: Measures the accuracy of positive predictions (correctly identified potential medalists).
+- **Recall**: Measures the model’s ability to capture all relevant instances (identifying all medalists).
+
+### Model Evaluation Summary:
+- **Logistic Regression**:
+  - **AUPRC**: 0.932
+  - **F1**: 0.852
+  - **Precision**: 0.848
+  - **Recall**: 0.856
+- **Random Forest**:
+  - **AUPRC**: 0.955
+  - **F1**: 0.883
+  - **Precision**: 0.886
+  - **Recall**: 0.881
+- **SVC**:
+  - **AUPRC**: 0.947
+  - **F1**: 0.867
+  - **Precision**: 0.878
+  - **Recall**: 0.856
+- **XGBoost**:
+  - **AUPRC**: 0.957
+  - **F1**: 0.889
+  - **Precision**: 0.887
+  - **Recall**: 0.891
 
 ## Results
-- The XGBoost model performed best, with high precision and recall for medal prediction, making it suitable for identifying potential sponsorship candidates.
+- The **XGBoost** model achieved the best performance with high precision and recall for medal prediction, making it the most suitable for identifying potential sponsorship candidates.
 - Key insights:
   - Age and event category significantly impact medal likelihood.
-  - Higher consistency and performance observed in long-term participants and certain sports.
+  - Higher consistency and performance are observed in long-term participants and certain sports.
 
 ## Recommendations
 1. **Early Warning System** - Track athlete performance patterns to proactively identify sponsorship candidates.
